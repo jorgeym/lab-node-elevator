@@ -6,9 +6,17 @@ class Elevator {
     this.direction = "up";
   }
 
-  start() { }
-  stop() { }
-  update() { }
+  start() {
+    this.interval = setInterval(() => {
+      this.update();
+    }, 1000);
+  }
+  stop() {
+    clearInterval(this.interval);
+  }
+  update() {
+    this.log();
+  }
   _passengersEnter() { }
   _passengersLeave() { }
   floorUp() { }
@@ -20,5 +28,6 @@ class Elevator {
 }
 
 var myElevator =new Elevator();
-myElevator.log();
+myElevator.start();
+myElevator.stop();
 module.exports = Elevator;
