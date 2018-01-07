@@ -3,6 +3,7 @@ class Elevator {
     this.floor      = 0;
     this.MAXFLOOR   = 10;
     this.requests   = [];
+    this.direction = "up";
   }
 
   start() { }
@@ -13,7 +14,11 @@ class Elevator {
   floorUp() { }
   floorDown() { }
   call() { }
-  log() { }
+  log() {
+    console.log(`Direction: ${this.direction} | Floor: ${this.floor}`)
+  }
 }
 
+var myElevator =new Elevator();
+myElevator.log();
 module.exports = Elevator;
